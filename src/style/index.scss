@@ -1,0 +1,59 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(search-pane) {
+  &.el-form {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(24, 1fr);
+  }
+  .el-form-item {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 0;
+    grid-column-start: span 8;
+
+    @for $span from 1 to 25 {
+      &.span__#{$span} {
+        grid-column-start: span #{$span};
+      }
+    }
+    &__label {
+      padding-right: 0;
+      .el-tooltip {
+        cursor: pointer;
+      }
+    }
+    &__content {
+      flex: 1;
+      display: flex;
+      min-height: 32px;
+      align-items: center;
+      margin-left: initial !important;
+      > div {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        width: auto;
+      }
+      > .h-form--item__group {
+        display: grid;
+        grid-template-columns: repeat(24, 1fr);
+        grid-gap: 8px;
+        &--item {
+          padding-right: 0;
+          width: auto;
+          .el-form-item__content {
+            flex: initial;
+          }
+        }
+      }
+    }
+    &.align-right {
+      > .el-form-item__content {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
