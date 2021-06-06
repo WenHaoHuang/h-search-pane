@@ -46,6 +46,7 @@
       <el-button
         v-if="!hideSubmit"
         type="primary"
+        icon="el-icon-search"
         @click="onSubmit"
       >
         {{ submitText }}
@@ -108,7 +109,7 @@ export default {
     },
     hideCancel: {
       type: Boolean,
-      default: false
+      default: true
     },
     span: {
       type: Number,
