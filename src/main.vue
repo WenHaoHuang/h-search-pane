@@ -43,6 +43,7 @@
           style="margin-left:0;"
         />
       </el-button>
+      <slot name="extend" />
       <el-button
         v-if="!hideSubmit"
         type="primary"
